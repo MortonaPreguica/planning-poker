@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font: 13px Helvetica, Arial; }
+      #pool { display: flex; justify-items: center; align-items: center; gap: 20px; background-color: beige; width: 500px; height: 300px;}
+      li { display: flex; flex-direction: column; gap: 10px;}
+      li div { border: 1px solid aquamarine; padding: 8px 16px; }
+    </style>
+  </head>
+  <body>
+    <ul id="pool"></ul>
+    <button id="teste">Dale</button>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      var socket = io();
+      
+      $("#teste").click(function () {
+        console.log("Apertando o botao")
+        socket.emit("voting")
+      })
+
+      socket.on('teste', function (obj) {
+        console.log("dale")
+      })
+    </script>
+  </body>
+</html>
